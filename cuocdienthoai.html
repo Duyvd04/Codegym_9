@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính cước điện thoại</title>
+    <script>
+        function calculatePhoneBill() {
+            const minutes = parseFloat(document.getElementById("minutes").value);
+            const baseRate = 25000;
+            let totalBill;
+
+            if (minutes <= 50) {
+                totalBill = baseRate + minutes * 600;
+            } else if (minutes <= 200) {
+                totalBill = baseRate + 50 * 600 + (minutes - 50) * 400;
+            } else {
+                totalBill = baseRate + 50 * 600 + 150 * 400 + (minutes - 200) * 200;
+            }
+
+            document.getElementById("result7").innerText = `Cước điện thoại: ${totalBill} VND`;
+        }
+    </script>
+</head>
+<body>
+<h2>Tính cước điện thoại</h2>
+<input type="number" id="minutes" placeholder="Nhập số phút gọi" step="1">
+<button onclick="calculatePhoneBill()">Tính cước</button>
+<p id="result7"></p>

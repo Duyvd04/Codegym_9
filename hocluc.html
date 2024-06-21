@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp hạng học lực</title>
+    <script>
+        function gradeStudent() {
+            const testScore = parseFloat(document.getElementById("testScore").value);
+            const midTermScore = parseFloat(document.getElementById("midTermScore").value);
+            const finalScore = parseFloat(document.getElementById("finalScore").value);
+
+            const average = (testScore + midTermScore + finalScore) / 3;
+
+            let grade;
+            if (average >= 8.5) {
+                grade = "Giỏi";
+            } else if (average >= 7.0) {
+                grade = "Khá";
+            } else if (average >= 5.5) {
+                grade = "Trung Bình";
+            } else {
+                grade = "Yếu";
+            }
+
+            document.getElementById("result").innerText = `Học lực: ${grade}`;
+        }
+    </script>
+</head>
+<body>
+<h2>Xếp hạng học lực</h2>
+<input type="number" id="testScore" placeholder="Điểm bài kiểm tra" min="0" max="10">
+<input type="number" id="midTermScore" placeholder="Điểm thi giữa kỳ" min="0" max="10">
+<input type="number" id="finalScore" placeholder="Điểm thi cuối kỳ" min="0" max="10">
+<button onclick="gradeStudent()">Xếp hạng</button>
+<p id="result"></p>
+</body>
+</html>

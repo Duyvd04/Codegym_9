@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính hoa hồng</title>
+    <script>
+        function calculateCommission() {
+            const sales = parseFloat(document.getElementById("sales").value);
+
+            let commission;
+            if (sales <= 10000) {
+                commission = sales * 0.05;
+            } else if (sales <= 20000) {
+                commission = 10000 * 0.05 + (sales - 10000) * 0.1;
+            } else {
+                commission = 10000 * 0.05 + 10000 * 0.1 + (sales - 20000) * 0.15;
+            }
+
+            document.getElementById("result6").innerText = `Hoa hồng: ${commission} VND`;
+        }
+    </script>
+</head>
+<body>
+<h2>Tính hoa hồng</h2>
+<input type="number" id="sales" placeholder="Nhập doanh số">
+<button onclick="calculateCommission()">Tính hoa hồng</button>
+<p id="result6"></p>
+</body>
+</html>
